@@ -1,0 +1,6 @@
+@mixin ui-login-form(){
+  ui-login-form{
+    display:block;
+    @content;
+  }
+}

@@ -1,0 +1,19 @@
+[
+    "./lib/controller/controller.js",
+    "./lib/scroll/scroll.js",
+    "./lib/slide-notification/slideNotification.js",
+    "./lib/model-list/modelList.js",
+    "./lib/model-delete/modelDelete.js",
+    "./lib/form/form.js",
+    "./lib/login/loginForm.js",
+    "./lib/signup/signupForm.js",
+    "./lib/autocomplete/autocomplete.js",
+    "./lib/badge/badge.js",
+    "./lib/pagination-badge/paginationBadge.js",
+    "./lib/pluralize/pluralize.js",
+    "./lib/select/select.js",
+    "./lib/autosearch/autosearch.js",
+    "./lib/veneer/veneer.js",
+    "./lib/sticky-reveal/stickyReveal.js",
+    "./lib/download/download.js"
+]

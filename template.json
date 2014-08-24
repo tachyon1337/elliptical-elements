@@ -1,0 +1,5 @@
+[
+    "./lib/login/template/ui-login-form.html",
+    "./lib/signup/template/ui-signup-form.html",
+    "./lib/slide-notification/template/ui-slide-notification.html"
+]

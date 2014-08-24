@@ -1,0 +1,20 @@
+
+ <ui-signup-form class="{cssClass}"  scope="{scope}" redirect="{redirect}" schema={schema}>
+ {#model}
+    <form method="POST" action="{action}" id="elliptical-signup-form">
+        <label>Username:</label>
+        <input type="text" name="Email" data-bind="value:Email" id="Email" class="{Email_error}"
+               placeholder="{@placeholder value="{Email_placeholder}" defaultValue="Email" /}" value="{Email}">
+        <label>Password</label>
+        <input type="password" name="Password" data-bind="value:Password" id="Password" class="{Password_error}"
+               placeholder="{@placeholder value="{Password_placeholder}" defaultValue="Password" /}" value="{Password}">
+        <div class="ui-flex-container">
+            <button class="ui-button large margin">Sign Up</button>
+        </div>
+
+        {#submitLabel}
+            <label class="ui-semantic-label {css} {cssDisplay}">{message}</label>
+        {/submitLabel}
+    </form>
+ {/model}
+ </ui-signup-form>

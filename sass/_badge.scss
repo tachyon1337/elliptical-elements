@@ -1,0 +1,24 @@
+
+@mixin ui-model-badge($class:null,$component:inverse,
+$padding:null,
+$margin:null,
+$line-height:null,
+$border-radius:null,
+$font:null,
+$font-size:null
+){
+
+  .ui-model-badge,ui-model-badge {
+    @if $class != null{
+      &.#{$class} {
+        @include _ui-badge($component,$padding,$margin,$line-height,$border-radius,$font,$font-size);
+        @content;
+      }
+
+    } @else {
+      @include _ui-badge($component,$padding,$margin,$line-height,$border-radius,$font,$font-size);
+      @content;
+    }
+
+  }
+}

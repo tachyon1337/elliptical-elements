@@ -1,0 +1,8 @@
+
+
+@mixin ui-form(){
+  ui-form{
+    display:block;
+    @content;
+  }
+}
