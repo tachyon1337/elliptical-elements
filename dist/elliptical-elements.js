@@ -470,7 +470,7 @@
         define(['ellipsis-element'], factory);
     } else {
         // Browser globals (root is window)
-        root.returnExports = factory();
+        root.returnExports = factory($);
     }
 }(this, function ($) {
     $.element('elliptical.modelDelete','ui-model-delete',{
