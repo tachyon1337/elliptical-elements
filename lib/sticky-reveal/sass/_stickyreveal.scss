@@ -1,0 +1,44 @@
+
+@mixin _ui-sticky-reveal($component:null,$height:null,$z-index:null){
+
+  position:fixed;
+  top:50px;
+  height:$height;
+  width:100%;
+  display:none;
+  z-index:$z-index;
+  border-top:0;
+  border-left:0;
+  border-right:0;
+  @extend %#{$component}-background !optional;
+  @extend %#{$component}-border !optional;
+  @extend %#{$component}-box-shadow !optional;
+
+  &>.reveal-container,&>reveal-container{
+    width:100%;
+    @include flexbox($justification:center);
+    height:$height;
+    &>*{
+      width:$grid-width;
+    }
+  }
+}
+
+@mixin ui-sticky-reveal($class:null,$component:null,$tag:ui-sticky-reveal,
+$height:60px,
+$z-index:$global-z-index+919
+){
+  .ui-sticky-reveal,#{$tag} {
+    @if $class != null{
+      &.#{$class} {
+        @include _ui-sticky-reveal($component,$height,$z-index);
+        @content;
+      }
+
+    } @else {
+      @include _ui-sticky-reveal($component,$height,$z-index);
+      @content;
+    }
+
+  }
+}

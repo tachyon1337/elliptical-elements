@@ -1,0 +1,11 @@
+@mixin ui-autosearch($width:100%){
+  ui-autosearch{
+    display:block;
+    position:relative;
+    width:$width;
+    @content;
+    &>ui-search{
+      width:100%;
+    }
+  }
+}

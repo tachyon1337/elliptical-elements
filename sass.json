@@ -1,0 +1,14 @@
+[
+    "./lib/autosearch/autosearch/sass/_autosearch.scss",
+    "./lib/badge/sass/_badge.scss",
+    "./lib/form/sass/_form.scss",
+    "./lib/login/sass/_loginform.scss",
+    "./lib/model-delete/sass/_modeldelete.scss",
+    "./lib/model-list/sass/_modellist.scss",
+    "./lib/pagination-badge/sass/paginationBadge.scss",
+    "./lib/pluralize/sass/pluralize.scss",
+    "./lib/signup/sass/_signupform.scss",
+    "./lib/slide-notification/sass/_slidenotification.scss",
+    "./lib/sticky-reveal/_stickyreveal.scss",
+    "./lib/sass/_veneer.scss"
+]

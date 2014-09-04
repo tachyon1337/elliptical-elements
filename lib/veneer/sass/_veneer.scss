@@ -1,0 +1,36 @@
+
+
+@mixin _ui-veneer(
+$top:null,
+$z-index:null
+){
+  position: fixed;
+  top: $top;
+  width: 100%;
+  z-index: $z-index;
+  @include flexbox($justification: center);
+}
+
+@mixin ui-veneer($class:null,
+$top:100px,
+$z-index:$global-z-index + 9999
+){
+  overlay-element{
+    @if $class != null{
+      &.#{$class} {
+        @include _ui-veneer($top,$z-index);
+        @content;
+      }
+
+    } @else {
+      @include _ui-veneer($top,$z-index);
+      @content;
+    }
+    @include tablet-content(){
+      top:60px;
+    }
+    @include phone-content(){
+      top:5px;
+    }
+  }
+}

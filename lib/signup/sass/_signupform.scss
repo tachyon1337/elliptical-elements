@@ -1,0 +1,6 @@
+@mixin ui-signup-form(){
+  ui-signup-form{
+    display:block;
+    @content;
+  }
+}
