@@ -1,11 +1,16 @@
 
-@mixin _ui-sticky-reveal($component:null,$height:null,$z-index:null){
+@mixin _ui-sticky-reveal($component:null,
+$height:null,
+$top:null,
+$z-index:null,
+$justification:null,
+$alignment:null){
 
   position:fixed;
-  top:50px;
+  top:$top;
   height:$height;
   width:100%;
-  display:none;
+  visibility: hidden;
   z-index:$z-index;
   border-top:0;
   border-left:0;
@@ -13,30 +18,38 @@
   @extend %#{$component}-background !optional;
   @extend %#{$component}-border !optional;
   @extend %#{$component}-box-shadow !optional;
-
+  @include flexbox($justification:center);
   &>.reveal-container,&>reveal-container{
-    width:100%;
-    @include flexbox($justification:center);
+    width:$grid-width;
+    @include flexbox($justification:$justification,$alignment:$alignment);
     height:$height;
-    &>*{
-      width:$grid-width;
+    &>.left{
+      margin-right:auto;
     }
+    &>.right{
+      margin-left:auto;
+    }
+
   }
+  
 }
 
 @mixin ui-sticky-reveal($class:null,$component:null,$tag:ui-sticky-reveal,
 $height:60px,
-$z-index:$global-z-index+919
+$top:0,
+$z-index:$global-z-index+919,
+$justification:center,
+$alignment:flex-start
 ){
   .ui-sticky-reveal,#{$tag} {
     @if $class != null{
       &.#{$class} {
-        @include _ui-sticky-reveal($component,$height,$z-index);
+        @include _ui-sticky-reveal($component,$height,$top,$z-index,$justification,$alignment);
         @content;
       }
 
     } @else {
-      @include _ui-sticky-reveal($component,$height,$z-index);
+      @include _ui-sticky-reveal($component,$height,$top,$z-index,$justification,$alignment);
       @content;
     }
 
