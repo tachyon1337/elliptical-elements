@@ -140,7 +140,9 @@
          *===========================================*/
 
         _initController:function(){
-            this._scrollEvent();
+            if(!this._support.mq.touch){
+                this._scrollEvent();
+            }
         },
 
         _onScroll: $.noop,
@@ -470,7 +472,7 @@
         define(['ellipsis-element'], factory);
     } else {
         // Browser globals (root is window)
-        root.returnExports = factory();
+        root.returnExports = factory($);
     }
 }(this, function ($) {
     $.element('elliptical.modelDelete','ui-model-delete',{
@@ -1917,6 +1919,7 @@
                     var model=this._getModel();
                     this._renderElement(model);
                 }
+                this.__setElement();
             }else{
                 this._destroy();
             }
@@ -1924,6 +1927,10 @@
 
         },
 
+        __setElement:function(){
+            var scrollY = window.pageYOffset;
+            this._onScroll(scrollY);
+        },
 
         _getContainer:function(){
             this._data.container=(this.options.$customElements) ? this.element.find('reveal-container') : this.element.find('.reveal-container');
