@@ -24,23 +24,7 @@
     }
 }(this, function ($) {
 
-    /**
-     * getter/setter for scope id prop
-     * @type {Object}
-     */
-    $.controller.config={
-        scope:Object.defineProperties({},{
-            'id':{
-                get:function(){
-                    return $.Widget.prototype.options.idProp;
-                },
-                set:function(val){
-                    $.Widget.prototype.options.idProp=val;
-                }
-            }
-        })
 
-    };
 
     /**
      * pass services to the controller prototype, $.controller.service(S1,S2,..SN);
@@ -104,6 +88,8 @@
 
     /* extend the controller UI Factory prototype */
     $.extend($.elliptical.controller.prototype,prototype_);
+
+
 
     return $;
 }));
@@ -640,7 +626,23 @@
          * @private
          */
         _onValidate: function (event, data) {
-            (this.options.schema) ? this._validate(data) : this.___onSubmit(data);
+            if(this.__verifyFormElement(data.element)){
+                (this.options.schema) ? this._validate(data) : this.___onSubmit(data);
+            }
+        },
+
+        /**
+         * verify submitting form element is in the component node tree
+         * @param target {Object} element
+         * @private
+         */
+        __verifyFormElement:function(target){
+            var thisForm=this._form();
+            if(thisForm[0]){
+                return (thisForm[0]===target);
+            }else{
+                return false;
+            }
 
         },
 
@@ -1346,13 +1348,8 @@
 
 /*
  * =============================================================
- * elliptical.modelBadge  v0.9.1
+ * elliptical.modelBadge
  * =============================================================
- * Copyright (c) 2014 S.Francis, MIS Interactive
- * Licensed MIT
- *
- * Dependencies:
- * elliptical-controller
  *
  */
 
